@@ -6,10 +6,12 @@
 > Grab some sticky notes and write down **what makes code good or bad for you personally** and place it on the whiteboard.
 
 ## Bad Code
+<img src="imgs/mental_mapping.png" width="500">
+
 * Bad code requires mental mapping between the outside world and the internals of the code because the internal structure of the software does not match the outside world.
 * With every iteration, this mental work increases, which decreases team productivity continuously.
 
-<img src="imgs/mental_mapping.png" width="500">
+<img src="imgs/productivity.png" width="500">
 
 ## Good Code
 * Good code on the other hand minimises the mapping between the outside world and the internals of the code.
@@ -54,3 +56,5 @@ From most to least important
 9. OLID (Open-Closed, Liskov Substitution Principle, Interface Segregation Principle, Dependency Inversion Principle)
 10. Program against an interface, not an implementation
 11. Gang of Four Design Patterns
+
+## How 
