@@ -1,7 +1,8 @@
 # Deeply-Nested Control Flow
 
 ## Exercise
-> Package: **exercise2**
+> Exercise branch: **exercise2**
+> Solution branch: **exercise3**
 > 
 > Remove the deeply-nested control flow using invert if, merge if, and remove redundant else (automated refactoring using quickfixes or manually)
 > 

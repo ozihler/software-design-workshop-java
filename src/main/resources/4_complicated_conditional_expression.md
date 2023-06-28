@@ -1,7 +1,8 @@
 # Complicated Conditional Expression
 
-## Exercise
-> Package: **exercise3**
+## Exercise 
+> Exercise branch: **exercise3**
+> Solution branch: **exercise4**
 > 
 > **Preparation**
 > * Extract two variables for the delta between x coordinates and y coordinates. Use the automated refactoring “extract variable” (see cheat sheet). 
