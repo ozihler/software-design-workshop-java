@@ -14,23 +14,23 @@ Problems can occur with nested control flow structures, such as if/else, switch/
 
 ## Example
 ```java
-    try {
-        if (input != null) {
-            for (int v = 0; v < input.length; v++) { 
-                if (v == x) {
-                    z++; 
-                }
+try {
+    if (input != null) {
+        for (int v = 0; v < input.length; v++) { 
+            if (v == x) {
+                z++; 
             }
         }
     }
+}
 ```
-
 * This code is difficult to comprehend, primarily because it mixes several levels of abstraction, violating the Single Level of Abstraction (SLoA) principle. 
 * We aim for code that's easy to scan and read. 
 * Higher-level abstractions (e.g. objects) are missing, making it hard to understand the code's intent. 
 * This nesting also increases the code's cyclomatic complexity, making it error-prone and challenging to test.
 
-## Solution
+
+## Solutions
 1. **Early exit strategy / early returns / Guard Clause / Bouncer** - Use early return statements to lessen the depth of nested statements.
 ```java
 public void doSth(FancyObject f) { 
@@ -83,7 +83,7 @@ private void execute(Action action) {
 ```
 
 ## Cause
-* Deeply nested control flow structures usually arise from procedural code without the development of higher-level software design abstractions. 
+* Deeply-nested control flow structures usually arise from procedural code without the development of higher-level software design abstractions. 
 * This can also occur when existing methods are continuously extended to accommodate new requirements.
 
 ## Exceptions
