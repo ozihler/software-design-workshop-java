@@ -19,3 +19,38 @@
 share the same mental model (so called Ubiquitous Language in Domain-Driven Design)
 
 <img src="imgs/shared_mental_model.png" width="500">
+
+## How to identify code to improve?
+<img src="imgs/clean_code_wtfmin.png" width="500">
+
+* a systematic approach to identify code with improvement potential are [Code Smells](https://refactoring.guru/refactoring/smells).
+* Code Smells are micro-anti-patterns in code that indicate something may be wrong.
+* Not every code smell actually is a problem.
+
+## Exercise
+> **Identifying Code Smells**
+>
+> Have a look at the print out of RoundedShape
+> * 5 mins - mark (optionally name) as many smells as possible
+> * 3 mins - merge findings with your neighbour (we will tell you when to switch)
+
+## Objective of this (tiny) workshop
+<img src="imgs/code_smells_refactoring_goal_design.png" width="500">
+
+* Recognise the most important code smells
+* Apply automated and manually refactorings
+* Evaluate goal designs
+
+## Design Principles as Orientation for the Design Goal in typical Business Software 
+From most to least important
+1. Separation of Concerns (e.g. Clean Architecture, Layering, Model View Controller, CQRS)
+2. Single Responsibility Principle
+3. Keep it Simple Stupid (KISS), You Ain't Gonna Need It (YAGNI)
+4. Principle of Least Surprise
+5. Single Level of Abstraction
+6. Don't Repeat Yourself (DRY)
+7. Cycle-free
+8. Prefer Composition over Inheritance
+9. OLID (Open-Closed, Liskov Substitution Principle, Interface Segregation Principle, Dependency Inversion Principle)
+10. Program against an interface, not an implementation
+11. Gang of Four Design Patterns
