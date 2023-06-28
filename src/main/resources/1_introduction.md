@@ -56,5 +56,3 @@ From most to least important
 9. OLID (Open-Closed, Liskov Substitution Principle, Interface Segregation Principle, Dependency Inversion Principle)
 10. Program against an interface, not an implementation
 11. Gang of Four Design Patterns
-
-## How 
