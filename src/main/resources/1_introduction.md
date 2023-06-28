@@ -45,8 +45,8 @@ share the same mental model (so called Ubiquitous Language in Domain-Driven Desi
 
 ## Design Principles as Orientation for the Design Goal in typical Business Software 
 From most to least important
-1. Separation of Concerns (e.g. Clean Architecture, Layering, Model View Controller, CQRS)
-2. Single Responsibility Principle
+1. Separation of Concerns (e.g. Clean Architecture, Layering, Model View Controller, CQRS, ...)
+2. [Single Responsibility Principle](https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html)
 3. Keep it Simple Stupid (KISS), You Ain't Gonna Need It (YAGNI)
 4. Principle of Least Surprise
 5. Single Level of Abstraction

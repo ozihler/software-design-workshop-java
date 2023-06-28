@@ -1,9 +1,9 @@
 # Refactoring
 
 ## Definition
-> 
-> Changing the internal structure of software without changing its external behaviour to make it easier to understand and cheaper to modify (Martin Fowler)
->
+```
+Changing the internal structure of software without changing its external behaviour to make it easier to understand and cheaper to modify (Martin Fowler)
+```
 
 ## Prerequesites
 * Fast, reliable, automated (unit) tests!
