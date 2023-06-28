@@ -1,7 +1,7 @@
 # Bad names
 
 ## Exercise
-> Branch: **master**
+> Package: **exercise1**
 >
 > Rename anything you think needs a better name, e.g. variables, methods, classes, and files. 
 > 
