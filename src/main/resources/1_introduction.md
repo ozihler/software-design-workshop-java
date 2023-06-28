@@ -1,5 +1,6 @@
 # Introduction
 
+## Exercise
 > **Good vs. Bad Code**
 > 
 > Grab some sticky notes and write down **what makes code good or bad for you personally** and place it on the whiteboard.
