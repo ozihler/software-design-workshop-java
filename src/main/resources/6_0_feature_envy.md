@@ -24,15 +24,6 @@ public class UserProfiles {
     } 
 }
 
-public class UserProfile {
-    public boolean isComplete() {
-        return getUserName() != null &&
-               getFullName() != null &&
-               getScreenName() != null &&
-               getEmailAddress() != null;
-    } 
-}
-
 // Refactored code
 public class UserProfiles {
     public void add(UserProfile userProfile) { 
