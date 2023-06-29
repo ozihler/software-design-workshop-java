@@ -72,7 +72,8 @@ for(Rental rental: rentals) {
 3. Move every concern to its own loop
 4. Optional: wrap each loop into its own method and move it to an own file or class
 
-### Control Flow Split
+
+# Control Flow Split
 - The Loop Split algorithm of duplicating the control structure is also feasible for other control structures (e.g. if, switch) with several separate concerns in the body.
 - identifying different concerns and duplicating the control flow structure for each concern enables the extraction of methods with only one purpose and a single responsibility.
 - Simple, small methods/functions that can be moved close to the data they use (or into a class) are the main driver of a rich, understandable, extensible domain model and maintainable software design.
