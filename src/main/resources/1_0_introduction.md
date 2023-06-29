@@ -1,10 +1,5 @@
 # Introduction
-
-## Exercise
-> **Good vs. Bad Code**
-> 
-> Grab some sticky notes and write down **what makes code good or bad for you personally** and place it on the whiteboard.
-
+ 
 ## Bad Code
 <img src="imgs/mental_mapping.png" width="500">
 
@@ -27,15 +22,8 @@ share the same mental model (so called Ubiquitous Language in Domain-Driven Desi
 
 * a systematic approach to identify code with improvement potential are [Code Smells](https://refactoring.guru/refactoring/smells).
 * Code Smells are micro-anti-patterns in code that indicate something may be wrong.
-* Not every code smell actually is a problem.
-
-## Exercise
-> **Identifying Code Smells**
->
-> Have a look at the print out of RoundedShape
-> * 5 mins - mark (optionally name) as many smells as possible
-> * 3 mins - merge findings with your neighbour (we will tell you when to switch)
-
+* Not every code smell actually is a problem. 
+ 
 ## Objective of this (tiny) workshop
 <img src="imgs/code_smells_refactoring_goal_design.png" width="500">
 
