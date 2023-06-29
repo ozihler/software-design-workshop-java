@@ -84,15 +84,6 @@ public class UserProfile {
 - tests, being inherently procedural, should thoroughly inspect the class under test. Therefore, multiple calls to public methods of the class being tested within the tests are acceptable.
 
 ### Separation of Concerns
-
 - The principle of Separation of Concerns (SoC) seeks to decouple layers and systems, delineating precisely how different concerns can interact.
 - At times, what seems like Feature Envy might actually be an exemplification of SoC, especially when keeping a decoupled and maintainable system architecture is a priority.
 - A typical example is layering or clean architecture, where presentation logic may access data multiple times from lower layers like the domain to format some presentation, yet the presentation logic should not be moved to the lower domain layer as it is very specific to the presentation layer.
-
-## Refactoring technique: extract, wrap, move
-Basic idea: bring data and functionality on that data closer together
-1. Extract some logic as method or function
-2. Wrap data passed to that method in new class or type
-3. Move extracted method/function either into newly created class (OOP) or a file close to that type (FP)
-
-1 and 2 may be exchanged. If there exists already a suitable class or type, 2 may be omitted.
