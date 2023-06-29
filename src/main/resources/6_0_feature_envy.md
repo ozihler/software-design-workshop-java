@@ -4,11 +4,13 @@
 
 ### Example
 ```java
-public class UserProfileController { 
-    @PostMapping
-    public ResponseEntity post(@RequestBody UserProfile userProfile) { 
-        if (!isComplete(userProfile)) {
-            return ResponseEntity.badRequest().build(); 
+public class UserProfiles { 
+    
+    public void add(UserProfile userProfile) { 
+        if (isComplete(userProfile)) {
+            // do something
+        }else {
+            // do something else
         }
     }
 
@@ -32,11 +34,12 @@ public class UserProfile {
 }
 
 // Refactored code
-public class UserProfileController { 
-    @PostMapping
-    public ResponseEntity post(@RequestBody UserProfile userProfile) { 
-        if (userProfile == null || !userProfile.isComplete()) {
-            return ResponseEntity.badRequest().build(); 
+public class UserProfiles {
+    public void add(UserProfile userProfile) { 
+        if (userProfile != null && userProfile.isComplete()) {
+            // do something
+        }else {
+            // do something else
         }
     }
 }
