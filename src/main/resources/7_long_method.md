@@ -131,13 +131,20 @@ for(Rental rental: rentals) {
 
 ## Duplicate and Reduce
 1. For each caller or caller group of a structure (class, function, loop, system), create an own copy (copy-paste)
+
 <img src="imgs/dr1.png" width="500">
 <img src="imgs/dr2.png" width="500">
+
 2. Redirect each caller or caller group to their copy of the structure.
+
 <img src="imgs/dr3.png" width="500">
+
 3. Reduce the copy to only work on the single responsibility the caller or caller group is interested in.
+
 <img src="imgs/dr4.png" width="500">
+
 4. (Optional) if it makes sense, extract the initially shared part into an own structure and call it from the other structures.
+
 <img src="imgs/dr5.png" width="500">
 
 This algorithm is both extremely simple yet scales from function to system level easily.
