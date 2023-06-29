@@ -130,12 +130,15 @@ for(Rental rental: rentals) {
 - Simple, small methods/functions that can be moved close to the data they use (or into a class) are the main driver of a rich, understandable, extensible domain model and maintainable software design.
 
 ## Duplicate and Reduce
-1. For each caller or caller group of a structure (class, function, loop, system), create an own copy (copy-paste)
+0. A structure (e.g. class, function, loop, system) with multiple callers or caller groups, which each are only interested in 1 of the 2 or more responsibilities the structure has.
 
 <img src="imgs/dr1.png" width="500">
+
+1. For each caller or caller group of a structure, create an own copy
+
 <img src="imgs/dr2.png" width="500">
 
-2. Redirect each caller or caller group to their copy of the structure.
+2. Redirect each caller or caller group to their respective copy of the structure.
 
 <img src="imgs/dr3.png" width="500">
 
