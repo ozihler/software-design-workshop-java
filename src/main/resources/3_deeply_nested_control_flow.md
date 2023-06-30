@@ -34,6 +34,17 @@ public void doSth(FancyObject f) {
 2. **Remove redundante else clauses** - Especially with early returns and validation logic.
 3. **Merge conditions** - Combine nested ifs into one if when conditions can be merged.
 ```java
+// before
+
+public void doSth(FancyObject f) {
+    if (f != null) {
+        if(f.canExecute()) {
+            f.execute();
+        }
+    }
+}
+
+// after
 public void doSth(FancyObject f) {
     if (f != null && f.canExecute()) {
         f.execute();
