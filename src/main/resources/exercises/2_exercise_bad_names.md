@@ -1,7 +1,7 @@
 # Bad names
 
 ## Exercise
-> Exercise branch: **exercise1**
+> Exercise branch: **master**
 > 
 > Solution branch: **exercise2**
 >
