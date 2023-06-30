@@ -51,28 +51,28 @@ class RoundShapeTest {
 
 	@Test
 	void should_count_contained_points_when_moved_to_new_location() {
-		RoundShape RoundShape = new RoundShape(0, 0, 20);
+		RoundShape roundShape = new RoundShape(0, 0, 20);
 		int[] xCoordinates = new int[]{2, 3, 4, -12, -20};
 		int[] yCoordinates = new int[]{8, 20, 15, -4, -20};
-		assertEquals(3, RoundShape.cntPts(xCoordinates, yCoordinates));
+		assertEquals(3, roundShape.cntPts(xCoordinates, yCoordinates));
 
-		RoundShape.mv(-30, -30);
+		roundShape.mv(-30, -30);
 
-		assertEquals(1, RoundShape.cntPts(xCoordinates, yCoordinates));
+		assertEquals(1, roundShape.cntPts(xCoordinates, yCoordinates));
 	}
 
 	@Test
 	void should_count_contained_points_when_resized_for_new_area() {
-		RoundShape RoundShape = new RoundShape(0, 0, 20);
+		RoundShape roundShape = new RoundShape(0, 0, 20);
 		int[] xCoordinates = new int[]{2, 3, 4, -12, -20};
 		int[] yCoordinates = new int[]{8, 20, 15, -4, -20};
-		assertEquals(3, RoundShape.cntPts(xCoordinates, yCoordinates));
+		assertEquals(3, roundShape.cntPts(xCoordinates, yCoordinates));
 
-		RoundShape.rs(40);
-		assertEquals(5, RoundShape.cntPts(xCoordinates, yCoordinates));
+		roundShape.rs(40);
+		assertEquals(5, roundShape.cntPts(xCoordinates, yCoordinates));
 
-		RoundShape.rs(1);
-		assertEquals(0, RoundShape.cntPts(xCoordinates, yCoordinates));
+		roundShape.rs(1);
+		assertEquals(0, roundShape.cntPts(xCoordinates, yCoordinates));
 	}
 
 	@Test
