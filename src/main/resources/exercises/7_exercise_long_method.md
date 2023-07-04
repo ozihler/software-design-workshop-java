@@ -1,7 +1,7 @@
 # Long Method / Function
 > Exercise branch: **exercise6**
 >
-> Solution branch: **exercise7**
+> Solution branches: **exercise7part1, exercise7**
 >
 > **Exercise part 1**
 > 
@@ -21,7 +21,12 @@
 > **Exercise part 2**
 > 
 > Creation of points (including validation of inputs) should happen outside of “countContainedPoints” as it is not in the responsibility of that method.
-> * Wrap the loop for creating points into a static method “createPoints(xCoords, yCoords)” 
-> * Make this method public and move it to a new class PointsFactory 
+> * wrap the "points" variable within the second loop into an "asList(points)" method
+> * introduce a new parameter object "Points" to wrap the "asList(points)" method to "asList(new Points(points))"
+> * move asList(new Points(points)) to the Points class as a non-static method
+> * extract a variable for new Points(points)
+> * move it close to the creation of the points list
+> * wrap validation logic for coordinates, creation of the points array, and creation of a new Points object into an own static method "from(xCoordinates, yCoordinates)".
+> * Move this method to points.
 > * Wrap the loop for counting points into a public method “countContainedPoints(List<Point>)” 
-> * Remove PointsFactory.createPoints(xCoords, yCoords) from this method (either use inline refactoring or extract parameter)
+> * Remove Points.from(xCoordinates, yCoordinates) from this method (either use inline refactoring or extract parameter)
