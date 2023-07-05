@@ -14,7 +14,7 @@
 > Thus, 
 > * Wrap the parameters x and y of the ```contains``` method in the existing ```Point``` class. 
 > * Split the loop into two separate loops:
->  * Loop 1 creates a list of ```Point```s with a Point for each ```xCoords[i]``` and ```yCoords[i]```
+>  * Loop 1 creates a list of ```Point```s with a ```Point``` for each ```xCoords[i]``` and ```yCoords[i]```
 >  * Loop 2 iterates over this list of points and counts points contained within the circle.
 > 
 > 
