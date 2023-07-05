@@ -6,7 +6,7 @@
 >
 > Solution branches: **exercise7part1**
 > 
-> The ```contains``` method still uses primitive x and y int coordinates instead of the stronger Point class! 
+> The ```contains``` method still uses primitive x and y int coordinates instead of the stronger ```Point``` class! 
 >However, if we introduce a parameter for it in ```contains```, we end up with two unrelated concerns in the loop of ```countContainedPoints```:
 > * Concern 1: validation of point input values and creation of points
 > * Concern 2: counting the number of points contained within the circle.
