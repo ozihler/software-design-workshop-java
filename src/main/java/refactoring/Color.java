@@ -39,9 +39,25 @@ public class Color {
 		}
 	}
 
+	public String getBlue() {
+		return colorAsRGB_Blue;
+	}
+
+	public String getGreen() {
+		return colorAsRGB_Green;
+	}
+
+	public String getRed() {
+		return colorAsRGB_Red;
+	}
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
 	public String getColorFormatted(boolean includeHexAndRGB) {
 		if (includeHexAndRGB) {
-			return colorAsText + " " + colorAsHex + " " + colorAsRGB_Red + ":" + colorAsRGB_Green + ":" + colorAsRGB_Blue;
+			return "%s %s %s:%s:%s".formatted(colorAsText, colorAsHex, colorAsRGB_Red, colorAsRGB_Green, colorAsRGB_Blue);
 		} else {
 			return colorAsText;
 		}
