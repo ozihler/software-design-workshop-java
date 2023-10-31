@@ -1,7 +1,7 @@
 package refactoring;
 
 
-public class Circle implements Shape {
+public class Circle extends Shape {
 	private int x;
 	private int y;
 	private int r;

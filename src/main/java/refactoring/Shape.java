@@ -1,5 +1,5 @@
 package refactoring;
 
-public interface Shape {
-	String format();
+public abstract class Shape {
+	public abstract String format();
 }
