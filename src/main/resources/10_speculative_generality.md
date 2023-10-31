@@ -32,10 +32,19 @@ The principle advocates for utilizing the most generalized type in a hierarchy i
 ## Exceptions: When Might It Be Acceptable?
 - As a rule of thumb, avoid implementing unrequested features. Only bring in speculative features if their later introduction would be prohibitively costly.
 - When distinguishing between the interface and the implementation for publicly available interfaces (like APIs) within frameworks.
-- Single implementation interfaces that exist in different layers or components of an architecture (see e.g. Ports in Ports & Adapters / Hexagonal Architecture or Clean Architecture: 1 port may have only one implementation, but it is needed to define the contract the implementation has to fulfill).
+- To enforce _separation of concerns_: single implementation interfaces that exist in different layers or components of an architecture (see e.g. Ports in Ports & Adapters / Hexagonal Architecture or Clean Architecture: 1 port may have only one implementation, but it is needed to define the contract the implementation has to fulfill).
 
 ### Example of Acceptable Use
-In a well-structured layered architecture, suppose users can modify their address. This info might pass through multiple layers. If designed correctly, upper layers can access lower ones but not vice versa. This means once an address is updated, its new data can't directly move up layers. A solution could be a lower layer defining an interface, with same-layer objects calling it and higher-layer objects implementing it (akin to Hooks, Listeners, or Observers). For instance, a `UserProfile` class in the presentation layer might implement an `AddressChangeListener` interface from the application layer. When a user's address updates, all registered `AddressChangeListeners` get a notification. The implementing classes then decide the next steps. This example promotes the **Separation of Concerns (SoC)** principle, even if there's only one implementation of the interface.
+In a well-structured layered architecture, suppose users can modify their address.
+This info might pass through multiple layers. 
+If designed correctly, upper layers can access lower ones but not vice versa. 
+This means once an address is updated, its new data can't directly move up layers. 
+A solution could be a lower layer defining an interface, with same-layer objects calling it and higher-layer objects implementing it (akin to Hooks, Listeners, or Observers). 
+For instance, a `UserProfile` class in the presentation layer might implement an `AddressChangeListener` interface from the application layer. 
+When a user's address updates, all registered `AddressChangeListeners` get a notification. 
+The implementing classes then decide the next steps. 
+This example promotes the **Separation of Concerns (SoC)** principle, 
+even if there's only one implementation of the interface.
 
 
 
