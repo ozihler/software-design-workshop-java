@@ -1,7 +1,7 @@
 package refactoring;
 
 
-public class Circle {
+public class Circle implements Shape {
 	private int x;
 	private int y;
 	private int r;
@@ -37,7 +37,7 @@ public class Circle {
 		return numberOfContainedPoints;
 	}
 
-	private boolean contains(int[] xCords, int[] yCords, int i) {
+	public boolean contains(int[] xCords, int[] yCords, int i) {
 		var result = (xCords[i] - this.x) * (xCords[i] - this.x) + (yCords[i] - this.y) * (yCords[i] - this.y) <= r * r;
 		if (result) {
 			this.numberOfContainedPoints++;
@@ -54,13 +54,13 @@ public class Circle {
 		this.r = r;
 	}
 
+	@Override
 	public String format() {
 		return "circle: {" +
 				"\n\tcenter: (" + this.x + "," + this.y + ") " +
 				"\n\tradius: " + this.r +
 				"\n\tcolor: " + this.color.getColorFormatted(false)
 				+ "\n}";
-
 	}
 
 }
