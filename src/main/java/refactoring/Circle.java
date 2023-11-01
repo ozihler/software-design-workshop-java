@@ -6,7 +6,6 @@ public class Circle extends Shape {
 	private int y;
 	private int r;
 	private Color color = new Color("Green");
-	private int numberOfContainedPoints;
 
 	public Circle(int x, int y, int r) {
 		if (r <= 0) {
@@ -18,7 +17,7 @@ public class Circle extends Shape {
 	}
 
 	public int countContainedPoints(int[] xCords, int[] yCords) {
-		this.numberOfContainedPoints = 0;
+		int numberOfContainedPoints = 0;
 		if (xCords == null || xCords.length == 0) {
 			throw new RuntimeException("x coordinates are empty");
 		}
@@ -29,7 +28,9 @@ public class Circle extends Shape {
 			throw new RuntimeException("Not every provided x coordinate has a matching y coordinate");
 		}
 		for (int i = 0; i < xCords.length; ++i) {
-			contains(xCords, yCords, i);
+			if (contains(xCords, yCords, i)) {
+				numberOfContainedPoints++;
+			}
 		}
 		return numberOfContainedPoints;
 	}
@@ -37,11 +38,7 @@ public class Circle extends Shape {
 	public boolean contains(int[] xCords, int[] yCords, int i) {
 		var deltaX = xCords[i] - this.x;
 		var deltaY = yCords[i] - this.y;
-		var result = square(deltaX) + square(deltaY) <= square(r);
-		if (result) {
-			this.numberOfContainedPoints++;
-		}
-		return result;
+		return square(deltaX) + square(deltaY) <= square(r);
 	}
 
 	private int square(int value) {
