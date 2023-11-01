@@ -2,18 +2,13 @@ package refactoring;
 
 
 public class Circle extends Shape {
-	private int x;
-	private int y;
-	private int r;
+	private Point center;
+	private Radius radius;
 	private Color color = new Color("Green");
 
-	public Circle(int x, int y, int r) {
-		if (r <= 0) {
-			throw new RuntimeException("Radius needs to be larger 0");
-		}
-		this.x = x;
-		this.y = y;
-		this.r = r;
+	public Circle(Point center, Radius radius) {
+		this.center = center;
+		this.radius = radius;
 	}
 
 	public int countContainedPoints(int[] xCords, int[] yCords) {
@@ -28,37 +23,36 @@ public class Circle extends Shape {
 			throw new RuntimeException("Not every provided x coordinate has a matching y coordinate");
 		}
 		for (int i = 0; i < xCords.length; ++i) {
-			if (contains(xCords, yCords, i)) {
+			if (contains(new Point(xCords[i], yCords[i]))) {
 				numberOfContainedPoints++;
 			}
 		}
 		return numberOfContainedPoints;
 	}
 
-	public boolean contains(int[] xCords, int[] yCords, int i) {
-		var deltaX = xCords[i] - this.x;
-		var deltaY = yCords[i] - this.y;
-		return square(deltaX) + square(deltaY) <= square(r);
+	public boolean contains(Point point) {
+		var deltaX = point.x() - this.center.x();
+		var deltaY = point.y() - this.center.y();
+		return square(deltaX) + square(deltaY) <= square(radius.value());
 	}
 
 	private int square(int value) {
 		return value * value;
 	}
 
-	public void moveTo(int x, int y) {
-		this.x = x;
-		this.y = y;
+	public void moveTo(Point newCenter) {
+		this.center = newCenter;
 	}
 
-	public void resize(int r) {
-		this.r = r;
+	public void resize(Radius newRadius) {
+		this.radius = newRadius;
 	}
 
 	@Override
 	public String format() {
 		return "circle: {" +
-				"\n\tcenter: (" + this.x + "," + this.y + ") " +
-				"\n\tradius: " + this.r +
+				"\n\tcenter: (" + this.center.x() + "," + this.center.y() + ") " +
+				"\n\tradius: " + this.radius.value() +
 				"\n\tcolor: " + this.color.getColorFormatted(false)
 				+ "\n}";
 	}
