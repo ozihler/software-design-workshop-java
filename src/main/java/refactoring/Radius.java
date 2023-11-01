@@ -6,4 +6,8 @@ public record Radius(int value) {
 			throw new RuntimeException("Radius needs to be larger 0");
 		}
 	}
+
+	public int format() {
+		return value();
+	}
 }

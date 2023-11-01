@@ -51,8 +51,8 @@ public class Circle extends Shape {
 	@Override
 	public String format() {
 		return "circle: {" +
-				"\n\tcenter: (" + this.center.x() + "," + this.center.y() + ") " +
-				"\n\tradius: " + this.radius.value() +
+				"\n\tcenter: " + center.format() + " " +
+				"\n\tradius: " + radius.format() +
 				"\n\tcolor: " + this.color.getColorFormatted(false)
 				+ "\n}";
 	}
