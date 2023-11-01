@@ -35,11 +35,17 @@ public class Circle extends Shape {
 	}
 
 	public boolean contains(int[] xCords, int[] yCords, int i) {
-		var result = (xCords[i] - this.x) * (xCords[i] - this.x) + (yCords[i] - this.y) * (yCords[i] - this.y) <= r * r;
+		var deltaX = xCords[i] - this.x;
+		var deltaY = yCords[i] - this.y;
+		var result = square(deltaX) + square(deltaY) <= square(r);
 		if (result) {
 			this.numberOfContainedPoints++;
 		}
 		return result;
+	}
+
+	private int square(int value) {
+		return value * value;
 	}
 
 	public void moveTo(int x, int y) {
