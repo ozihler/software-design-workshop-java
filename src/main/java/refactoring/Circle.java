@@ -2,82 +2,80 @@ package refactoring;
 
 
 public class Circle extends Shape {
-	private int x;
-	private int y;
-	private int r;
-	private Color color = new Color("Green");
-	private int numberOfContainedPoints;
+    private int x;
+    private int y;
+    private int r;
+    private Color color = new Color("Green");
+    private int numberOfContainedPoints;
 
-	public Circle(int x, int y, int r) {
-		if (r <= 0) {
-			throw new RuntimeException("Radius needs to be larger 0");
-		}
-		this.x = x;
-		this.y = y;
-		this.r = r;
-	}
+    public Circle(int x, int y, int r) {
+        if (r <= 0) {
+            throw new RuntimeException("Radius needs to be larger 0");
+        }
+        this.x = x;
+        this.y = y;
+        this.r = r;
+    }
 
-	public int countContainedPoints(int[] xCords, int[] yCords) {
-		validateCoordinates(xCords, yCords);
+    public int countContainedPoints(int[] xCords, int[] yCords) {
+        if (xCords != null) {
+            if (xCords.length != 0) {
+                if (yCords != null) {
+                    if (yCords.length != 0) {
+                        if (xCords.length == yCords.length) {
+                            this.numberOfContainedPoints = 0;
+                            for (int i = 0; i < xCords.length; ++i) {
+                                contains(xCords, yCords, i);
+                            }
+                            return numberOfContainedPoints;
+                        } else {
+                            throw new RuntimeException("Not every provided x coordinate has a matching y coordinate");
+                        }
+                    } else {
+                        throw new RuntimeException("y coordinates are empty");
+                    }
+                } else {
+                    throw new RuntimeException("y coordinates are empty");
+                }
+            } else {
+                throw new RuntimeException("x coordinates are empty");
+            }
+        } else {
+            throw new RuntimeException("x coordinates are empty");
+        }
 
-		this.numberOfContainedPoints = 0;
-		for (int i = 0; i < xCords.length; ++i) {
-			contains(xCords, yCords, i);
-		}
-		return numberOfContainedPoints;
-	}
+    }
+    public boolean contains(int[] xCords, int[] yCords, int i) {
+        var deltaX = xCords[i] - this.x;
+        var deltaY = yCords[i] - this.y;
+        var result = square(deltaX) + square(deltaY) <= square(r);
 
-	private static void validateCoordinates(int[] xCords, int[] yCords) {
-		if (isEmpty(xCords)) {
-			throw new RuntimeException("x coordinates are empty");
-		}
-		if (isEmpty(yCords)) {
-			throw new RuntimeException("y coordinates are empty");
-		}
-		if (differInLength(xCords, yCords)) {
-			throw new RuntimeException("Not every provided x coordinate has a matching y coordinate");
-		}
-	}
+        if (result) {
+            this.numberOfContainedPoints++;
+        }
+        return result;
+    }
 
-	private static boolean differInLength(int[] xCords, int[] yCords) {
-		return xCords.length != yCords.length;
-	}
+    private static int square(int value) {
+        return value * value;
+    }
 
-	private static boolean isEmpty(int[] coordinates) {
-		return coordinates == null || coordinates.length == 0;
-	}
+    public void moveTo(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
-	public boolean contains(int[] xCords, int[] yCords, int i) {
-		var deltaX = xCords[i] - this.x;
-		var deltaY = yCords[i] - this.y;
-		var result = square(deltaX) + square(deltaY) <= square(r);
+    public void resize(int r) {
+        this.r = r;
+    }
 
-		if (result) {
-			this.numberOfContainedPoints++;
-		}
-		return result;
-	}
-
-	private static int square(int value) {
-		return value * value;
-	}
-
-	public void moveTo(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
-
-	public void resize(int r) {
-		this.r = r;
-	}
-
-	@Override
-	public String format() {
-		return "circle: {" +
-				"\n\tcenter: (" + this.x + "," + this.y + ") " +
-				"\n\tradius: " + this.r +
-				"\n\tcolor: " + this.color.getColorFormatted(false)
-				+ "\n}";
-	}
+    @Override
+    public String format() {
+        return "circle: {" +
+                "\n\tcenter: (" + this.x + "," + this.y + ") " +
+                "\n\tradius: " + this.r +
+                "\n\tcolor: " + this.color.getColorFormatted(false)
+                + "\n}";
+    }
 
 }
