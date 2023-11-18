@@ -20,6 +20,10 @@ public class Circle extends Shape {
 	public int countContainedPoints(int[] xCords, int[] yCords) {
 		validateCoordinates(xCords, yCords);
 
+		return countPointsFor(xCords, yCords);
+	}
+
+	private int countPointsFor(int[] xCords, int[] yCords) {
 		this.numberOfContainedPoints = 0;
 		for (int i = 0; i < xCords.length; ++i) {
 			contains(xCords, yCords, i);
