@@ -14,7 +14,11 @@ public class Circle extends Shape {
 	public int countContainedPoints(int[] xCords, int[] yCords) {
 		validateCoordinates(xCords, yCords);
 
-        int numberOfContainedPoints = 0;
+		return countPointsFor(xCords, yCords);
+	}
+
+	private int countPointsFor(int[] xCords, int[] yCords) {
+		int numberOfContainedPoints = 0;
 		for (int i = 0; i < xCords.length; ++i) {
 			if (contains(new Point(xCords[i], yCords[i]))) {
 				numberOfContainedPoints++;
@@ -23,7 +27,7 @@ public class Circle extends Shape {
 		return numberOfContainedPoints;
 	}
 
-    private static void validateCoordinates(int[] xCords, int[] yCords) {
+	private static void validateCoordinates(int[] xCords, int[] yCords) {
         if (isEmpty(xCords)) {
             throw new RuntimeException("x coordinates are empty");
         }
