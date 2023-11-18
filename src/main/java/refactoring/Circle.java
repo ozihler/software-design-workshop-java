@@ -12,16 +12,9 @@ public class Circle extends Shape {
 	}
 
 	public int countContainedPoints(int[] xCords, int[] yCords) {
-		int numberOfContainedPoints = 0;
-		if (xCords == null || xCords.length == 0) {
-			throw new RuntimeException("x coordinates are empty");
-		}
-		if (yCords == null || yCords.length == 0) {
-			throw new RuntimeException("y coordinates are empty");
-		}
-		if (xCords.length != yCords.length) {
-			throw new RuntimeException("Not every provided x coordinate has a matching y coordinate");
-		}
+		validateCoordinates(xCords, yCords);
+
+        int numberOfContainedPoints = 0;
 		for (int i = 0; i < xCords.length; ++i) {
 			if (contains(new Point(xCords[i], yCords[i]))) {
 				numberOfContainedPoints++;
@@ -29,6 +22,27 @@ public class Circle extends Shape {
 		}
 		return numberOfContainedPoints;
 	}
+
+    private static void validateCoordinates(int[] xCords, int[] yCords) {
+        if (isEmpty(xCords)) {
+            throw new RuntimeException("x coordinates are empty");
+        }
+        if (isEmpty(yCords)) {
+            throw new RuntimeException("y coordinates are empty");
+        }
+        if (differInLength(xCords, yCords)) {
+            throw new RuntimeException("Not every provided x coordinate has a matching y coordinate");
+        }
+    }
+
+    private static boolean differInLength(int[] xCords, int[] yCords) {
+        return xCords.length != yCords.length;
+    }
+
+    private static boolean isEmpty(int[] coordinates) {
+        return coordinates == null || coordinates.length == 0;
+    }
+
 
 	public boolean contains(Point point) {
 		var deltaX = point.x() - this.center.x();
