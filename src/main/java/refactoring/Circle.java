@@ -18,16 +18,15 @@ public class Circle extends Shape {
     }
 
     public int countContainedPoints(int[] xCords, int[] yCords) {
+        this.numberOfContainedPoints = 0;
         if (xCords != null) {
-            if (xCords.length != 0) {
+            if (xCords.length > 0) {
                 if (yCords != null) {
-                    if (yCords.length != 0) {
+                    if (yCords.length > 0) {
                         if (xCords.length == yCords.length) {
-                            this.numberOfContainedPoints = 0;
                             for (int i = 0; i < xCords.length; ++i) {
                                 contains(xCords, yCords, i);
                             }
-                            return numberOfContainedPoints;
                         } else {
                             throw new RuntimeException("Not every provided x coordinate has a matching y coordinate");
                         }
@@ -43,8 +42,9 @@ public class Circle extends Shape {
         } else {
             throw new RuntimeException("x coordinates are empty");
         }
-
+        return numberOfContainedPoints;
     }
+
     public boolean contains(int[] xCords, int[] yCords, int i) {
         var deltaX = xCords[i] - this.x;
         var deltaY = yCords[i] - this.y;
