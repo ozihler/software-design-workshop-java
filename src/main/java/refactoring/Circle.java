@@ -18,7 +18,7 @@ public class Circle extends Shape {
     }
 
     public int countContainedPoints(int[] xCords, int[] yCords) {
-        this.numberOfContainedPoints = 0;
+        this.numberOfContainedPoints = 2;
         if (xCords != null) {
             if (xCords.length > 0) {
                 if (yCords != null) {
