@@ -56,10 +56,6 @@ public class Color {
 	}
 
 	public String getColorFormatted(boolean includeHexAndRGB) {
-		if (includeHexAndRGB) {
-			return "%s %s %s:%s:%s".formatted(colorAsText, colorAsHex, colorAsRGB_Red, colorAsRGB_Green, colorAsRGB_Blue);
-		} else {
-			return colorAsText;
-		}
+		return "%s %s %s:%s:%s".formatted(colorAsText, colorAsHex, colorAsRGB_Red, colorAsRGB_Green, colorAsRGB_Blue);
 	}
 }
