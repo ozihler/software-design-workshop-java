@@ -18,20 +18,33 @@ public class Circle extends Shape {
 	}
 
 	public int countContainedPoints(int[] xCords, int[] yCords) {
+		validateCoordinates(xCords, yCords);
+
 		this.numberOfContainedPoints = 0;
-		if (xCords == null || xCords.length == 0) {
-			throw new RuntimeException("x coordinates are empty");
-		}
-		if (yCords == null || yCords.length == 0) {
-			throw new RuntimeException("y coordinates are empty");
-		}
-		if (xCords.length != yCords.length) {
-			throw new RuntimeException("Not every provided x coordinate has a matching y coordinate");
-		}
 		for (int i = 0; i < xCords.length; ++i) {
 			contains(xCords, yCords, i);
 		}
 		return numberOfContainedPoints;
+	}
+
+	private static void validateCoordinates(int[] xCords, int[] yCords) {
+		if (isEmpty(xCords)) {
+			throw new RuntimeException("x coordinates are empty");
+		}
+		if (isEmpty(yCords)) {
+			throw new RuntimeException("y coordinates are empty");
+		}
+		if (differInLength(xCords, yCords)) {
+			throw new RuntimeException("Not every provided x coordinate has a matching y coordinate");
+		}
+	}
+
+	private static boolean differInLength(int[] xCords, int[] yCords) {
+		return xCords.length != yCords.length;
+	}
+
+	private static boolean isEmpty(int[] coordinates) {
+		return coordinates == null || coordinates.length == 0;
 	}
 
 	public boolean contains(int[] xCords, int[] yCords, int i) {
