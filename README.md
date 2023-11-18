@@ -4,4 +4,4 @@
 3. Run all tests in ```test/java/refactoring``` (all should be green)
 
 # Solution video
-https://www.youtube.com/watch?v=8HMQNayXV1g
+https://youtu.be/NZW9i4QIXVU
