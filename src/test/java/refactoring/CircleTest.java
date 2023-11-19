@@ -20,7 +20,7 @@ class CircleTest {
 		int[] xCoordinates = new int[]{2, 3, 4, -12, -20};
 		int[] yCoordinates = new int[]{8, 20, 15, -4,};
 
-		assertThrows(RuntimeException.class, () -> circle.countContainedPoints(xCoordinates, yCoordinates));
+		assertThrows(RuntimeException.class, () -> circle.countContainedPoints(Points.from(xCoordinates, yCoordinates)));
 	}
 
 	@Test
@@ -28,8 +28,11 @@ class CircleTest {
 		Circle circle = new Circle(new Point(0, 0), new Radius(2));
 		int[] yCoordinates = new int[]{8, 20, 15, -4,};
 
-		assertThrows(RuntimeException.class, () -> circle.countContainedPoints(null, yCoordinates));
-		assertThrows(RuntimeException.class, () -> circle.countContainedPoints(new int[0], yCoordinates));
+		assertThrows(RuntimeException.class, () -> circle.countContainedPoints(Points.from(null, yCoordinates)));
+		assertThrows(RuntimeException.class, () -> {
+			int[] xCords = new int[0];
+			circle.countContainedPoints(Points.from(xCords, yCoordinates));
+		});
 	}
 
 	@Test
@@ -37,8 +40,11 @@ class CircleTest {
 		Circle circle = new Circle(new Point(0, 0), new Radius(2));
 		int[] xCoordinates = new int[]{8, 20, 15, -4,};
 
-		assertThrows(RuntimeException.class, () -> circle.countContainedPoints(xCoordinates, null));
-		assertThrows(RuntimeException.class, () -> circle.countContainedPoints(xCoordinates, new int[0]));
+		assertThrows(RuntimeException.class, () -> circle.countContainedPoints(Points.from(xCoordinates, null)));
+		assertThrows(RuntimeException.class, () -> {
+			int[] yCords = new int[0];
+			circle.countContainedPoints(Points.from(xCoordinates, yCords));
+		});
 	}
 
 	@Test
@@ -46,7 +52,7 @@ class CircleTest {
 		Circle circle = new Circle(new Point(5, -5), new Radius(10));
 		int[] xCoordinates = new int[]{2, 1, 3, 8, 4, -12, -20, -4};
 		int[] yCoordinates = new int[]{8, 1, 20, -4, 15, -4, -20, -4};
-		assertEquals(3, circle.countContainedPoints(xCoordinates, yCoordinates));
+		assertEquals(3, circle.countContainedPoints(Points.from(xCoordinates, yCoordinates)));
 	}
 
 	@Test
@@ -54,11 +60,11 @@ class CircleTest {
 		Circle circle = new Circle(new Point(0, 0), new Radius(20));
 		int[] xCoordinates = new int[]{2, 3, 4, -12, -20};
 		int[] yCoordinates = new int[]{8, 20, 15, -4, -20};
-		assertEquals(3, circle.countContainedPoints(xCoordinates, yCoordinates));
+		assertEquals(3, circle.countContainedPoints(Points.from(xCoordinates, yCoordinates)));
 
 		circle.moveTo(new Point(-30, -30));
 
-		assertEquals(1, circle.countContainedPoints(xCoordinates, yCoordinates));
+		assertEquals(1, circle.countContainedPoints(Points.from(xCoordinates, yCoordinates)));
 	}
 
 	@Test
@@ -66,13 +72,13 @@ class CircleTest {
 		Circle circle = new Circle(new Point(0, 0), new Radius(20));
 		int[] xCoordinates = new int[]{2, 3, 4, -12, -20};
 		int[] yCoordinates = new int[]{8, 20, 15, -4, -20};
-		assertEquals(3, circle.countContainedPoints(xCoordinates, yCoordinates));
+		assertEquals(3, circle.countContainedPoints(Points.from(xCoordinates, yCoordinates)));
 
 		circle.resize(new Radius(40));
-		assertEquals(5, circle.countContainedPoints(xCoordinates, yCoordinates));
+		assertEquals(5, circle.countContainedPoints(Points.from(xCoordinates, yCoordinates)));
 
 		circle.resize(new Radius(1));
-		assertEquals(0, circle.countContainedPoints(xCoordinates, yCoordinates));
+		assertEquals(0, circle.countContainedPoints(Points.from(xCoordinates, yCoordinates)));
 	}
 
 	@Test

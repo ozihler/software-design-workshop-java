@@ -1,8 +1,6 @@
 package refactoring;
 
 
-import java.util.ArrayList;
-
 public class Circle extends Shape {
 	private Point center;
 	private Radius radius;
@@ -13,48 +11,12 @@ public class Circle extends Shape {
 		this.radius = radius;
 	}
 
-	public int countContainedPoints(int[] xCords, int[] yCords) {
-		validateCoordinates(xCords, yCords);
-
-		return countPointsFor(xCords, yCords);
+	public int countContainedPoints(Points points) {
+		return (int) points.asList()
+				.stream()
+				.filter(this::contains)
+				.count();
 	}
-
-	private int countPointsFor(int[] xCords, int[] yCords) {
-		var points = new ArrayList<Point>();
-
-		for (int i = 0; i < xCords.length; ++i) {
-			var point = new Point(xCords[i], yCords[i]);
-			points.add(point);
-		}
-
-		int numberOfContainedPoints = 0;
-		for (Point point : points) {
-			if (contains(point)) {
-				numberOfContainedPoints++;
-			}
-		}
-		return numberOfContainedPoints;
-	}
-
-	private static void validateCoordinates(int[] xCords, int[] yCords) {
-        if (isEmpty(xCords)) {
-            throw new RuntimeException("x coordinates are empty");
-        }
-        if (isEmpty(yCords)) {
-            throw new RuntimeException("y coordinates are empty");
-        }
-        if (differInLength(xCords, yCords)) {
-            throw new RuntimeException("Not every provided x coordinate has a matching y coordinate");
-        }
-    }
-
-    private static boolean differInLength(int[] xCords, int[] yCords) {
-        return xCords.length != yCords.length;
-    }
-
-    private static boolean isEmpty(int[] coordinates) {
-        return coordinates == null || coordinates.length == 0;
-    }
 
 
 	public boolean contains(Point point) {
