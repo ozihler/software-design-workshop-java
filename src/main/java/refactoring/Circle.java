@@ -1,7 +1,7 @@
 package refactoring;
 
 
-public class Circle extends Shape {
+public class Circle {
 	private Point center;
 	private Radius radius;
 	private Color color = new Color("Green");
@@ -37,7 +37,6 @@ public class Circle extends Shape {
 		this.radius = newRadius;
 	}
 
-	@Override
 	public String format() {
 		return "circle: {" +
 				"\n\tcenter: " + center.format() + " " +
