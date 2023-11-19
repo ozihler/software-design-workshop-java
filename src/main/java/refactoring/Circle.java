@@ -1,6 +1,8 @@
 package refactoring;
 
 
+import java.util.ArrayList;
+
 public class Circle extends Shape {
 	private Point center;
 	private Radius radius;
@@ -18,9 +20,16 @@ public class Circle extends Shape {
 	}
 
 	private int countPointsFor(int[] xCords, int[] yCords) {
-		int numberOfContainedPoints = 0;
+		var points = new ArrayList<Point>();
+
 		for (int i = 0; i < xCords.length; ++i) {
-			if (contains(new Point(xCords[i], yCords[i]))) {
+			var point = new Point(xCords[i], yCords[i]);
+			points.add(point);
+		}
+
+		int numberOfContainedPoints = 0;
+		for (Point point : points) {
+			if (contains(point)) {
 				numberOfContainedPoints++;
 			}
 		}
