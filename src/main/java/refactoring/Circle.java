@@ -42,7 +42,7 @@ public class Circle extends Shape {
 		return "circle: {" +
 				"\n\tcenter: " + center.format() + " " +
 				"\n\tradius: " + radius.format() +
-				"\n\tcolor: " + this.color.getColorFormatted(false)
+				"\n\tcolor: " + this.color.getColorAsText()
 				+ "\n}";
 	}
 
