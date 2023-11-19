@@ -21,7 +21,6 @@ public class Circle extends Shape {
 
 	private int countPointsFor(int[] xCords, int[] yCords) {
 		var points = new ArrayList<Point>();
-
 		for (int i = 0; i < xCords.length; ++i) {
 			var point = new Point(xCords[i], yCords[i]);
 			points.add(point);
