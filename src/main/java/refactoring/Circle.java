@@ -34,7 +34,7 @@ public class Circle {
         return "circle: {" +
                 "\n\tcenter: " + center.format() + " " +
                 "\n\tradius: " + radius.format() +
-                "\n\tcolor: " + this.color.getColorAsText()
+                "\n\tcolor: " + color.getColorAsText()
                 + "\n}";
     }
 
