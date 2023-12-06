@@ -2,47 +2,40 @@ package refactoring;
 
 
 public class Circle {
-	private Point center;
-	private Radius radius;
-	private Color color = new Color("Green");
+    private Point center;
+    private Radius radius;
+    private Color color = new Color("Green");
 
-	public Circle(Point center, Radius radius) {
-		this.center = center;
-		this.radius = radius;
-	}
+    public Circle(Point center, Radius radius) {
+        this.center = center;
+        this.radius = radius;
+    }
 
-	public int countContainedPoints(Points points) {
-		return (int) points.asList()
-				.stream()
-				.filter(this::contains)
-				.count();
-	}
+    public int countContainedPoints(Points points) {
+        return (int) points.asList()
+                .stream()
+                .filter(this::contains)
+                .count();
+    }
 
+    public boolean contains(Point point) {
+        return this.center.distanceTo(point) <= radius.value();
+    }
 
-	public boolean contains(Point point) {
-		var deltaX = point.x() - this.center.x();
-		var deltaY = point.y() - this.center.y();
-		return square(deltaX) + square(deltaY) <= square(radius.value());
-	}
+    public void moveTo(Point newCenter) {
+        this.center = newCenter;
+    }
 
-	private int square(int value) {
-		return value * value;
-	}
+    public void resize(Radius newRadius) {
+        this.radius = newRadius;
+    }
 
-	public void moveTo(Point newCenter) {
-		this.center = newCenter;
-	}
-
-	public void resize(Radius newRadius) {
-		this.radius = newRadius;
-	}
-
-	public String format() {
-		return "circle: {" +
-				"\n\tcenter: " + center.format() + " " +
-				"\n\tradius: " + radius.format() +
-				"\n\tcolor: " + this.color.getColorAsText()
-				+ "\n}";
-	}
+    public String format() {
+        return "circle: {" +
+                "\n\tcenter: " + center.format() + " " +
+                "\n\tradius: " + radius.format() +
+                "\n\tcolor: " + this.color.getColorAsText()
+                + "\n}";
+    }
 
 }
