@@ -19,7 +19,7 @@ public class Circle {
     }
 
     public boolean contains(Point point) {
-        return this.center.distanceTo(point) <= radius.value();
+        return center.distanceTo(point) <= radius.value();
     }
 
     public void moveTo(Point newCenter) {
